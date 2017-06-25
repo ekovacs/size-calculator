@@ -41,4 +41,23 @@ public class SizeCalculatorTest {
 	public void testPredictionEndpoint() {
 		given().when().get(String.format("%s?brand=calvin-klein&category=dresses&measurement=32", PREDICTION_ENDPOINT)).then().statusCode(200);
 	}
+	
+	@Test
+	public void testPredictWithInvalidBrandName() {
+		given().when().get(String.format("%s?brand=%s&category=sneakers&measurement=11", PREDICTION_ENDPOINT, "Adidas")).then()
+			.statusCode(400);
+	}
+	
+	@Test
+	public void testPredictWithInvalidCategoryName() {
+		given().when().get(String.format("%s?brand=calvin-klein&category=%s&measurement=11", PREDICTION_ENDPOINT, "swim-suite")).then()
+		.statusCode(400);
+		
+	}
+	
+	@Test
+	public void testPredictWithCategoryNotBelongingToBrand() {
+		given().when().get(String.format("%s?brand=%s&category=%s&measurement=11", PREDICTION_ENDPOINT, "calvin-klein", "sneakers")).then()
+		.statusCode(400);
+	}
 }
