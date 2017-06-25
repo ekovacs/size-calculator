@@ -1,4 +1,4 @@
-package backend;
+package com.ssp.assignments.sizecalculator.tests;
 
 import static com.ssp.assigmnents.sizecalculator.rest.ServiceEndpointConstants.*;
 
@@ -32,6 +32,7 @@ public class SizeCalculatorTest {
 	public void testBrandsEndpoint() {
 		given().when().get(String.format("%s", BRANDS_ENDPOINT)).then().statusCode(200);
 	}
+	
 	@Test
 	public void testCategoriesEndpoint() {
 		given().when().get(String.format("%s?brand=calvin-klein", CATEGORIES_ENDPOINT)).then().statusCode(200);
@@ -41,7 +42,7 @@ public class SizeCalculatorTest {
 	public void testPredictionEndpoint() {
 		given().when().get(String.format("%s?brand=calvin-klein&category=dresses&measurement=32", PREDICTION_ENDPOINT)).then().statusCode(200);
 	}
-	
+
 	@Test
 	public void testPredictWithInvalidBrandName() {
 		given().when().get(String.format("%s?brand=%s&category=sneakers&measurement=11", PREDICTION_ENDPOINT, "Adidas")).then()
@@ -51,8 +52,28 @@ public class SizeCalculatorTest {
 	@Test
 	public void testPredictWithInvalidCategoryName() {
 		given().when().get(String.format("%s?brand=calvin-klein&category=%s&measurement=11", PREDICTION_ENDPOINT, "swim-suit")).then()
-		.statusCode(400);
-		
+			.statusCode(400);
 	}
+	
+	
+	@Test
+	public void testPredictCalvinKleinDressSize() {
+		String value = given().when().get(String.format("%s?brand=calvin-klein&category=%s&measurement=%s", PREDICTION_ENDPOINT, "dresses", "36")).then()
+			.statusCode(200).extract().asString();
+		System.out.println(value);
+	}
+	
+	
+	
+	@Test
+	public void testPredictCalvinKleinJeansSize() {
+		String value = given().when().get(String.format("%s?brand=calvin-klein&category=%s&measurement=%s", PREDICTION_ENDPOINT, "jeans", "31")).then()
+				.statusCode(200).extract().asString();
+		System.out.println(value);
+	}
+	
+	
+	
+	
 	
 }
