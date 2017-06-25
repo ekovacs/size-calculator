@@ -1,40 +1,57 @@
 package com.ssp.assigmnents.rest;
 
+import static com.ssp.assigmnents.rest.ServiceEndpointConstants.BRANDS_ENDPOINT;
+import static com.ssp.assigmnents.rest.ServiceEndpointConstants.CATEGORIES_ENDPOINT;
+import static com.ssp.assigmnents.rest.ServiceEndpointConstants.PREDICTION_ENDPOINT;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.ssp.assigmnents.domain.Brand;
+import com.ssp.assigmnents.domain.Category;
+import com.ssp.assigmnents.domain.Prediction;
+import com.ssp.assigmnents.service.api.ISizeCalculatorService;
 
 @RestController
 @EnableAutoConfiguration
+@RequestMapping(method = { RequestMethod.GET })
 public class SizeCalculatorRestService {
 
+	@Autowired
+	private ISizeCalculatorService sizeCalculatorService;
 
-	@RequestMapping("/brands")
-	Object getBrands() {
-		return "";
+	@RequestMapping(BRANDS_ENDPOINT)
+	@ResponseBody List<Brand> getBrands() {
+		return sizeCalculatorService.getBrands();
 	}
 
-	@RequestMapping("/categories")
-	Object getCategories(
-			@PathVariable(value = "brand")
-			String brand
-			) {
-		return "";
-	}
-
-	@RequestMapping("/prediction")
-	Object getPrediction(
+	@RequestMapping(CATEGORIES_ENDPOINT)
+	@ResponseBody List<Category> getCategories(
 			
-			@PathVariable(value = "brand")
+			@RequestParam(value = "brand")
+			String brand) {
+		return sizeCalculatorService.getCategoriesByBrand(brand);
+	}
+
+	@RequestMapping(PREDICTION_ENDPOINT)
+	@ResponseBody Prediction getPrediction(
+			
+			@RequestParam(value = "brand")
 			String brand, 
 			
-			@PathVariable(value = "category")
+			@RequestParam(value = "category")
 			String category, 
 			
-			@PathVariable(value = "size")
-			Object size) {
-		return "";
+			@RequestParam(value = "measurement")
+			int measurement) {
+		return sizeCalculatorService.getPrediction(brand, category, measurement);
 	}
 
 }
