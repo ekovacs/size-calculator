@@ -1,11 +1,11 @@
-package com.ssp.assigmnents.service.api.impl;
+package com.ssp.assigmnents.sizecalculator.service.api.impl;
 
-import com.ssp.assigmnents.domain.Brand;
-import com.ssp.assigmnents.domain.Category;
-import com.ssp.assigmnents.domain.DomainFactory;
-import com.ssp.assigmnents.domain.Prediction;
-import com.ssp.assigmnents.exception.InvalidCategoryConfiguration;
-import com.ssp.assigmnents.service.api.ISizePredictor;
+import com.ssp.assigmnents.sizecalculator.domain.Brand;
+import com.ssp.assigmnents.sizecalculator.domain.Category;
+import com.ssp.assigmnents.sizecalculator.domain.DomainFactory;
+import com.ssp.assigmnents.sizecalculator.domain.Prediction;
+import com.ssp.assigmnents.sizecalculator.exception.InvalidCategoryConfiguration;
+import com.ssp.assigmnents.sizecalculator.service.api.ISizePredictor;
 
 public class ChartBasedSizePredictor implements ISizePredictor {
 

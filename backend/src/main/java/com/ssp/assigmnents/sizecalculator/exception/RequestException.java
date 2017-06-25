@@ -1,6 +1,6 @@
-package com.ssp.assigmnents.exception;
+package com.ssp.assigmnents.sizecalculator.exception;
 
-import com.ssp.assigmnents.domain.RestApiProblem;
+import com.ssp.assigmnents.sizecalculator.domain.RestApiProblem;
 
 public class RequestException extends RuntimeException {
 	

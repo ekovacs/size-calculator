@@ -1,6 +1,6 @@
 package backend;
 
-import static com.ssp.assigmnents.rest.ServiceEndpointConstants.*;
+import static com.ssp.assigmnents.sizecalculator.rest.ServiceEndpointConstants.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.ssp.assigmnents.SizeCalculatorApp;
+import com.ssp.assigmnents.sizecalculator.SizeCalculatorApp;
 
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;

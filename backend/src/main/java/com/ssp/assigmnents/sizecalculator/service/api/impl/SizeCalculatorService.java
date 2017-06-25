@@ -1,14 +1,14 @@
-package com.ssp.assigmnents.service.api.impl;
+package com.ssp.assigmnents.sizecalculator.service.api.impl;
 
 import java.util.Collection;
 
 import org.springframework.stereotype.Service;
 
-import com.ssp.assigmnents.domain.Brand;
-import com.ssp.assigmnents.domain.Category;
-import com.ssp.assigmnents.domain.DomainFactory;
-import com.ssp.assigmnents.domain.Prediction;
-import com.ssp.assigmnents.service.api.ISizeCalculatorService;
+import com.ssp.assigmnents.sizecalculator.domain.Brand;
+import com.ssp.assigmnents.sizecalculator.domain.Category;
+import com.ssp.assigmnents.sizecalculator.domain.DomainFactory;
+import com.ssp.assigmnents.sizecalculator.domain.Prediction;
+import com.ssp.assigmnents.sizecalculator.service.api.ISizeCalculatorService;
 
 @Service
 public class SizeCalculatorService implements ISizeCalculatorService {

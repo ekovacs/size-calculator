@@ -1,4 +1,4 @@
-package com.ssp.assigmnents.exception;
+package com.ssp.assigmnents.sizecalculator.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

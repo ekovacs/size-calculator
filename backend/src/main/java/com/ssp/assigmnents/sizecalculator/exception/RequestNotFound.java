@@ -1,4 +1,4 @@
-package com.ssp.assigmnents.exception;
+package com.ssp.assigmnents.sizecalculator.exception;
 
 public class RequestNotFound extends RequestException {
 

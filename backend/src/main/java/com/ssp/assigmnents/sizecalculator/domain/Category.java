@@ -1,4 +1,4 @@
-package com.ssp.assigmnents.domain;
+package com.ssp.assigmnents.sizecalculator.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

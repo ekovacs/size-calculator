@@ -1,8 +1,8 @@
-package com.ssp.assigmnents.rest;
+package com.ssp.assigmnents.sizecalculator.rest;
 
-import static com.ssp.assigmnents.rest.ServiceEndpointConstants.BRANDS_ENDPOINT;
-import static com.ssp.assigmnents.rest.ServiceEndpointConstants.CATEGORIES_ENDPOINT;
-import static com.ssp.assigmnents.rest.ServiceEndpointConstants.PREDICTION_ENDPOINT;
+import static com.ssp.assigmnents.sizecalculator.rest.ServiceEndpointConstants.BRANDS_ENDPOINT;
+import static com.ssp.assigmnents.sizecalculator.rest.ServiceEndpointConstants.CATEGORIES_ENDPOINT;
+import static com.ssp.assigmnents.sizecalculator.rest.ServiceEndpointConstants.PREDICTION_ENDPOINT;
 
 import java.util.Collection;
 
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ssp.assigmnents.domain.Brand;
-import com.ssp.assigmnents.domain.Category;
-import com.ssp.assigmnents.domain.Prediction;
-import com.ssp.assigmnents.service.api.ISizeCalculatorService;
+import com.ssp.assigmnents.sizecalculator.domain.Brand;
+import com.ssp.assigmnents.sizecalculator.domain.Category;
+import com.ssp.assigmnents.sizecalculator.domain.Prediction;
+import com.ssp.assigmnents.sizecalculator.service.api.ISizeCalculatorService;
 
 @RestController
 @EnableAutoConfiguration

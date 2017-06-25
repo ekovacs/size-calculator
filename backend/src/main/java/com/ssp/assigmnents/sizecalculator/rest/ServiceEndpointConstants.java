@@ -1,4 +1,4 @@
-package com.ssp.assigmnents.rest;
+package com.ssp.assigmnents.sizecalculator.rest;
 
 public interface ServiceEndpointConstants {
 

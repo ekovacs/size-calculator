@@ -1,6 +1,6 @@
-package com.ssp.assigmnents.service.api;
+package com.ssp.assigmnents.sizecalculator.service.api;
 
-import com.ssp.assigmnents.domain.Prediction;
+import com.ssp.assigmnents.sizecalculator.domain.Prediction;
 
 
 public interface ISizePredictor {

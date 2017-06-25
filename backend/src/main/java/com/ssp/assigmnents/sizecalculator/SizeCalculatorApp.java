@@ -1,9 +1,9 @@
-package com.ssp.assigmnents;
+package com.ssp.assigmnents.sizecalculator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.ssp.assigmnents.rest.SizeCalculatorRestService;
+import com.ssp.assigmnents.sizecalculator.rest.SizeCalculatorRestService;
 
 @SpringBootApplication
 public class SizeCalculatorApp {

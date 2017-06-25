@@ -1,10 +1,10 @@
-package com.ssp.assigmnents.service.api;
+package com.ssp.assigmnents.sizecalculator.service.api;
 
 import java.util.Collection;
 
-import com.ssp.assigmnents.domain.Brand;
-import com.ssp.assigmnents.domain.Category;
-import com.ssp.assigmnents.domain.Prediction;
+import com.ssp.assigmnents.sizecalculator.domain.Brand;
+import com.ssp.assigmnents.sizecalculator.domain.Category;
+import com.ssp.assigmnents.sizecalculator.domain.Prediction;
 
 public interface ISizeCalculatorService {
 

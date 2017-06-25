@@ -1,4 +1,4 @@
-package com.ssp.assigmnents.exception;
+package com.ssp.assigmnents.sizecalculator.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.ssp.assigmnents.domain.RestApiProblem;
+import com.ssp.assigmnents.sizecalculator.domain.RestApiProblem;
 
 @ControllerAdvice
 public class ExceptionMapper {
