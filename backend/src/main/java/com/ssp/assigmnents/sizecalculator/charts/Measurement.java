@@ -3,7 +3,7 @@ package com.ssp.assigmnents.sizecalculator.charts;
 import com.google.common.base.Optional;
 import com.google.common.collect.Range;
 
-public class Measurement {
+public class Measurement implements Comparable<Measurement> {
 	
 	private final Range<Double> measurementRange;
 	private String alphaSize;
@@ -25,5 +25,10 @@ public class Measurement {
 	
 	public Optional<Range<Integer>> getNumericSizeRange() {
 		return numericSizeRange;
+	}
+
+	@Override
+	public int compareTo(Measurement other) {
+		return measurementRange.lowerEndpoint().compareTo(other.getMeasurementRange().lowerEndpoint());
 	}
 }
