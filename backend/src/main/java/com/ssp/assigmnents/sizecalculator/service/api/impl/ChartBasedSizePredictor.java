@@ -1,5 +1,6 @@
 package com.ssp.assigmnents.sizecalculator.service.api.impl;
 
+import com.ssp.assigmnents.sizecalculator.charts.SizeChartFactory;
 import com.ssp.assigmnents.sizecalculator.domain.Brand;
 import com.ssp.assigmnents.sizecalculator.domain.Category;
 import com.ssp.assigmnents.sizecalculator.domain.DomainFactory;
@@ -34,7 +35,7 @@ public class ChartBasedSizePredictor implements ISizePredictor {
 	
 	@Override
 	public Prediction predictSize() {
-		return new Prediction();
+		return Prediction.of(SizeChartFactory.createSizeChartFor(brand).size(category, measurement));
 	}
 	
 	public static class ChartBasedSizePredictorBuilder extends Builder {
