@@ -50,14 +50,9 @@ public class SizeCalculatorTest {
 	
 	@Test
 	public void testPredictWithInvalidCategoryName() {
-		given().when().get(String.format("%s?brand=calvin-klein&category=%s&measurement=11", PREDICTION_ENDPOINT, "swim-suite")).then()
+		given().when().get(String.format("%s?brand=calvin-klein&category=%s&measurement=11", PREDICTION_ENDPOINT, "swim-suit")).then()
 		.statusCode(400);
 		
 	}
 	
-	@Test
-	public void testPredictWithCategoryNotBelongingToBrand() {
-		given().when().get(String.format("%s?brand=%s&category=%s&measurement=11", PREDICTION_ENDPOINT, "calvin-klein", "sneakers")).then()
-		.statusCode(400);
-	}
 }

@@ -20,6 +20,18 @@ public class ChartBasedSizePredictor implements ISizePredictor {
 		
 	}
 	
+	public Brand getBrand() {
+		return brand;
+	}
+	
+	public Category getCategory() {
+		return category;
+	}
+	
+	public int getMeasurement() {
+		return measurement;
+	}
+	
 	@Override
 	public Prediction predictSize() {
 		return new Prediction();
@@ -53,7 +65,7 @@ public class ChartBasedSizePredictor implements ISizePredictor {
 		}
 
 		private void assertInvalidCategoryConfiguration() {
-			if (DomainFactory.getCategoriesFor(brand.getKey()).contains(category)) {
+			if (!DomainFactory.getCategoriesFor(brand.getKey()).contains(category)) {
 				throw new InvalidCategoryConfiguration(String.format("Supplied category ('%s') is not sold by brand ('%s')", category.getName(), brand.getName()));
 			}
 		}
