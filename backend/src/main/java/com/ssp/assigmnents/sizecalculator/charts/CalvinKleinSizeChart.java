@@ -5,10 +5,12 @@ import com.ssp.assigmnents.sizecalculator.domain.Category;
 
 public class CalvinKleinSizeChart implements ISizeChart {
 
+	public static final String BRAND_KEY = "calvin-klein";
+	
 	private final Multimap<Category, Measurement> sizeChart;
 	
 	public CalvinKleinSizeChart() {
-		sizeChart = SizeChartFactory.createSizeChart("calvin-klein");
+		sizeChart = SizeChartFactory.createSizeChart(BRAND_KEY);
 	}
 	
 	@Override

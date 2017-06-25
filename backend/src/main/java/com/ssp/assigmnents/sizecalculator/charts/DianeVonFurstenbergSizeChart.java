@@ -5,10 +5,12 @@ import com.ssp.assigmnents.sizecalculator.domain.Category;
 
 public class DianeVonFurstenbergSizeChart implements ISizeChart {
 
+	public static final String BRAND_KEY = "diane-von-furstenberg";
+	
 	private final Multimap<Category, Measurement> sizeChart;
 	
 	public DianeVonFurstenbergSizeChart() {
-		sizeChart = SizeChartFactory.createSizeChart("diane-von-furstenberg");
+		sizeChart = SizeChartFactory.createSizeChart(BRAND_KEY);
 	}
 	
 	@Override

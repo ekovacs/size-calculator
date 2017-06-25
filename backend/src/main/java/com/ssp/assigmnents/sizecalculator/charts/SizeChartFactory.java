@@ -6,21 +6,32 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Range;
+import com.ssp.assigmnents.sizecalculator.domain.Brand;
 import com.ssp.assigmnents.sizecalculator.domain.Category;
 import com.ssp.assigmnents.sizecalculator.domain.DomainFactory;
 
 public class SizeChartFactory {
 
+	
+	public static ISizeChart createSizeChartFor(Brand brand) {
+		if (brand.getKey().equals(CalvinKleinSizeChart.BRAND_KEY)) {
+			return new CalvinKleinSizeChart();
+		} else if (brand.getKey().equals(DianeVonFurstenbergSizeChart.BRAND_KEY)) {
+			return new DianeVonFurstenbergSizeChart();
+		} else if (brand.getKey().equals(MichaelKorsSizeChart.BRAND_KEY)) {
+			return new MichaelKorsSizeChart();
+		}
+		throw new IllegalArgumentException(String.format("Unkown size chart for, brand: %s", brand.getName()));
+	}
+	
 	public static Multimap<Category, Measurement> createSizeChart(String brandKey) {
 		Multimap<Category, Measurement> result = HashMultimap.create();
 		Collection<Category> categories = DomainFactory.getCategoriesFor(brandKey);
 		for (Category category : categories) {
 			result.putAll(category, createMeasurements(category, brandKey));
 		}
-		
 		return result;
 	}
-
 	
 	private static Collection<Measurement> createMeasurements(Category category, String brandKey) {
 		if (brandKey.equals("calvin-klein")) {
