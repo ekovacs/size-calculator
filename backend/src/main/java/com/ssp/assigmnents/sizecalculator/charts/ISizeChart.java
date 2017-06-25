@@ -1,26 +1,37 @@
 package com.ssp.assigmnents.sizecalculator.charts;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.assertj.core.util.Lists;
 
 import com.google.common.base.Optional;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Range;
 import com.ssp.assigmnents.sizecalculator.domain.Category;
+import com.ssp.assigmnents.sizecalculator.exception.RequestNotFound;
 
 public interface ISizeChart {
 
 	Multimap<Category, Measurement> getSizeChart();
 
-	public default List<String> size(Category category, double measurement) {
+	public default List<String> size(Category category, Double measurement) {
 		List<String> result = Lists.newArrayList();
-		for (Measurement m : getSizeChart().get(category)) {
+		List<Measurement> collection = Lists.newArrayList(getSizeChart().get(category));
+		Collections.sort(collection);
+		
+		if (measurement.compareTo(collection.iterator().next().getMeasurementRange().lowerEndpoint()) < 0)
+			throw new RequestNotFound("Measurement is too small!");
+		
+		if (measurement.compareTo(Iterables.getLast(collection).getMeasurementRange().upperEndpoint()) > 0)
+			throw new RequestNotFound("Measurement is too large!");
+		
+		
+		for (Measurement m : collection) {
 			//supplied measurement is smaller than the range's lower endpoint
-			if (m.getMeasurementRange().lowerEndpoint().compareTo(measurement) > 0) {
-				
+			if (measurement.compareTo(m.getMeasurementRange().lowerEndpoint()) < 0) {
 				result.add(m.getAlphaSize());
-					
 				if (m.getNumericSizeRange().isPresent()) {
 					result.add(m.getNumericSizeRange().get().lowerEndpoint().toString());
 				}
