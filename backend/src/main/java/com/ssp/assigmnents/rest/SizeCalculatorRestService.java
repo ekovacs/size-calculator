@@ -4,7 +4,7 @@ import static com.ssp.assigmnents.rest.ServiceEndpointConstants.BRANDS_ENDPOINT;
 import static com.ssp.assigmnents.rest.ServiceEndpointConstants.CATEGORIES_ENDPOINT;
 import static com.ssp.assigmnents.rest.ServiceEndpointConstants.PREDICTION_ENDPOINT;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -28,15 +28,16 @@ public class SizeCalculatorRestService {
 	private ISizeCalculatorService sizeCalculatorService;
 
 	@RequestMapping(BRANDS_ENDPOINT)
-	@ResponseBody List<Brand> getBrands() {
+	@ResponseBody Collection<Brand> getBrands() {
 		return sizeCalculatorService.getBrands();
 	}
 
 	@RequestMapping(CATEGORIES_ENDPOINT)
-	@ResponseBody List<Category> getCategories(
+	@ResponseBody Collection<Category> getCategories(
 			
-			@RequestParam(value = "brand")
-			String brand) {
+			@RequestParam(value = "brand") 
+			String brand
+			) {
 		return sizeCalculatorService.getCategoriesByBrand(brand);
 	}
 
@@ -50,7 +51,8 @@ public class SizeCalculatorRestService {
 			String category, 
 			
 			@RequestParam(value = "measurement")
-			int measurement) {
+			int measurement
+			) {
 		return sizeCalculatorService.getPrediction(brand, category, measurement);
 	}
 

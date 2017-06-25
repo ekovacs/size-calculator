@@ -1,12 +1,12 @@
 package com.ssp.assigmnents.service.api.impl;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.stereotype.Service;
 
-import com.google.common.collect.Lists;
 import com.ssp.assigmnents.domain.Brand;
 import com.ssp.assigmnents.domain.Category;
+import com.ssp.assigmnents.domain.DomainFactory;
 import com.ssp.assigmnents.domain.Prediction;
 import com.ssp.assigmnents.service.api.ISizeCalculatorService;
 
@@ -14,18 +14,23 @@ import com.ssp.assigmnents.service.api.ISizeCalculatorService;
 public class SizeCalculatorService implements ISizeCalculatorService {
 
 	@Override
-	public List<Brand> getBrands() {
-		return Lists.newArrayList();
+	public Collection<Brand> getBrands() {
+		return DomainFactory.getBrands();
 	}
 
 	@Override
-	public List<Category> getCategoriesByBrand(String brand) {
-		return Lists.newArrayList();
+	public Collection<Category> getCategoriesByBrand(String brand) {
+		return DomainFactory.getCategoriesFor(brand);
 	}
 
 	@Override
 	public Prediction getPrediction(String brand, String category, int measurement) {
-		return new Prediction();
+		return new ChartBasedSizePredictor.ChartBasedSizePredictorBuilder()
+						.brand(brand)
+						.category(category)
+						.measurement(measurement)
+					.build()
+					.predictSize();
 	}
 
 }
