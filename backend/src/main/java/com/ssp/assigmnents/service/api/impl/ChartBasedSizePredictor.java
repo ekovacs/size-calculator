@@ -5,6 +5,7 @@ import com.ssp.assigmnents.domain.Category;
 import com.ssp.assigmnents.domain.DomainFactory;
 import com.ssp.assigmnents.domain.Prediction;
 import com.ssp.assigmnents.exception.InvalidCategoryConfiguration;
+import com.ssp.assigmnents.service.api.ISizePredictor;
 
 public class ChartBasedSizePredictor implements ISizePredictor {
 

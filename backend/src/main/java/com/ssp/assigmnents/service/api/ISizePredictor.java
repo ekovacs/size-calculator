@@ -1,4 +1,4 @@
-package com.ssp.assigmnents.service.api.impl;
+package com.ssp.assigmnents.service.api;
 
 import com.ssp.assigmnents.domain.Prediction;
 
