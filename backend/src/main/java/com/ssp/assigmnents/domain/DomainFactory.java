@@ -13,8 +13,8 @@ public class DomainFactory {
 				
 			.putAll(Brand.of("calvin-klein", "Calvin Klein"), 
 							Category.of("dresses", "Dresses", "bust"), 
-							Category.of("jeans", "Jeans", "waist"))
-							// c-k doesn't sell shoes
+							Category.of("jeans", "Jeans", "waist"),
+							Category.of("sneakers", "Sneakers", "length"))
 				.putAll(Brand.of("diane-von-furstenberg", "Diane von Furstenberg"),
 							Category.of("dresses", "Dresses", "bust"), 
 							Category.of("jeans", "Jeans", "waist"),
