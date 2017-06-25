@@ -12,9 +12,9 @@ public class ChartBasedSizePredictor implements ISizePredictor {
 
 	private final Brand brand;
 	private final Category category;
-	private final int measurement;
+	private final double measurement;
 
-	private ChartBasedSizePredictor(Brand brand, Category category, int measurement) {
+	private ChartBasedSizePredictor(Brand brand, Category category, double measurement) {
 		this.brand = brand;
 		this.category = category;
 		this.measurement = measurement;
@@ -29,7 +29,7 @@ public class ChartBasedSizePredictor implements ISizePredictor {
 		return category;
 	}
 	
-	public int getMeasurement() {
+	public double getMeasurement() {
 		return measurement;
 	}
 	
@@ -42,7 +42,7 @@ public class ChartBasedSizePredictor implements ISizePredictor {
 		
 		private Brand brand;
 		private Category category;
-		private int measurement;
+		private double measurement;
 
 		public ChartBasedSizePredictorBuilder brand(String brandKey) {
 			brand = DomainFactory.brandForKey(brandKey);
@@ -54,7 +54,7 @@ public class ChartBasedSizePredictor implements ISizePredictor {
 			return this; 
 		}
 		
-		public ChartBasedSizePredictorBuilder measurement(int measurementSize) {
+		public ChartBasedSizePredictorBuilder measurement(double measurementSize) {
 			measurement = measurementSize;
 			return this; 
 		}
