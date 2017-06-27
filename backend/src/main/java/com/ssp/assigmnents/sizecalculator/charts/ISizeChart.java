@@ -3,7 +3,7 @@ package com.ssp.assigmnents.sizecalculator.charts;
 import java.util.Collections;
 import java.util.List;
 
-import org.assertj.core.util.Lists;
+import com.google.common.collect.Lists;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Iterables;
