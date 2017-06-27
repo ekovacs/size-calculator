@@ -11,7 +11,7 @@
 	<groupId>com.ssp.assignments</groupId>
 	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
+	 <packaging>jar</packaging>
 	<dependencies>
 
 		<dependency>
@@ -54,7 +54,6 @@
 
 	</dependencies>
 
-
 	<build>
 		<plugins>
 			<plugin>
@@ -66,6 +65,18 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+			<plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.4.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 
