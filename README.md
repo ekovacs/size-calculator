@@ -177,3 +177,21 @@ the permissive [MIT license](LICENSE).
 * https://en.wikipedia.org/wiki/Clothing_sizes
 * https://en.wikipedia.org/wiki/US_standard_clothing_size
 * https://en.wikipedia.org/wiki/EN_13402
+
+## Back end
+
+Backend is implemented using Spring boot (https://projects.spring.io/spring-boot/) providing the runtime framwork, dependency injection, and the framework for the REST API
+Tests are using REST-Assured (http://rest-assured.io/).
+
+## Building
+
+This back end implementation uses maven as a dependency manager and build platform.
+to compile issue commands:
+```
+ cd backend
+ mvn clean package
+```
+to run it as a standalone app:
+```
+java -jar target/backend-0.0.1-SNAPSHOT.jar
+```
